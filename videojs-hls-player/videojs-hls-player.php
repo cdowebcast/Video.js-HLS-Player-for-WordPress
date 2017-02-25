@@ -19,7 +19,7 @@ if (!class_exists('VIDEOJS_HLS_PLAYER'))
 {
     class VIDEOJS_HLS_PLAYER 
 	{
-        var $plugin_version = '1.0.2';
+        var $plugin_version = '1.0.3';
 		
         function __construct() 
 		{
@@ -100,7 +100,7 @@ function videojs_hls_player_enqueue_scripts()
         
 		wp_register_script(
 			'videojs', 
-			'//vjs.zencdn.net/5.9.2/video.js', 
+			'//vjs.zencdn.net/5.16.0/video.js', 
 			array('jquery'), 
 			VIDEOJS_HLS_PLAYER_VERSION, 
 			true
@@ -145,7 +145,7 @@ function videojs_hls_player_enqueue_scripts()
 		// LOAD ALL CSS
 		wp_register_style(
 			'videojs', 
-			'//vjs.zencdn.net/5.9.2/video-js.css'
+			'//vjs.zencdn.net/5.16.0/video-js.css'
 		);
         wp_enqueue_style('videojs');
         
@@ -184,7 +184,8 @@ function videojs_hls_video_embed_handler($atts)
         'muted' => '',
         'poster' => '',
         'class' => '',
-		'inline' => 'false'
+	'inline' => 'false',
+	'rtmp' => ''
     ), $atts));
     
 	if (empty($url))
@@ -216,6 +217,13 @@ function videojs_hls_video_embed_handler($atts)
         $ogv = '<source src="' . $ogv . '" type="video/ogg" />
 		';
         $src = $src . $ogv; 
+    }
+
+    if (!empty($rtmp)) 
+	{
+        $ogv = '<source src="' . $rtmp . '" type="rtmp/mp4" />
+		';
+        $src = $src . $rtmp; 
     }
 	
     // Controls
