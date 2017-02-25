@@ -58,6 +58,12 @@ You can specify a Ogv video file in addition to the source HLS video file. This 
 
 `[videojs_hls url="https://player.vimeo.com/external/xxxxxxxxx.m3u8" ogv="http://example.com/wp-content/uploads/videos/myvid.ogv"]`
 
+**RTMP**
+
+You can specify a RTMP video stream in addition to the source HLS video file. This parameter is optional.
+
+`[videojs_hls url="https://player.vimeo.com/external/xxxxxxxxx.m3u8" rtmp="rtmp://example.com:1935/id/stream"]`
+
 **Width**
 
 Defines the width of the video file (Height is automatically calculated). This option is not required unless you want to limit the maximum width of the video.
