@@ -221,7 +221,7 @@ function videojs_hls_video_embed_handler($atts)
 
     if (!empty($rtmp)) 
 	{
-        $ogv = '<source src="' . $rtmp . '" type="rtmp/mp4" />
+        $rtmp = '<source src="' . $rtmp . '" type="rtmp/mp4" />
 		';
         $src = $src . $rtmp; 
     }
